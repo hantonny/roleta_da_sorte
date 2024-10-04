@@ -37,6 +37,7 @@ export default function Home() {
     setMustSpin(false); // Para a roleta quando o giro acabar
     setResultText(data[prizeNumber].option); // Atualiza o texto com a opção selecionada
   };
+  const currentYear = new Date().getFullYear();
 
   return (
     <>
@@ -45,7 +46,7 @@ export default function Home() {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '98vh',
+        height: '99vh',
         backgroundColor: '#3e3e3e',
       }}>
         <h1 style={{
@@ -91,7 +92,7 @@ export default function Home() {
         <p style={{
           marginTop: '10px',
           fontWeight: 'bold',
-        }}>@2024 - Hantonny Korrea</p>
+        }}>@{currentYear} - Hantonny Korrea</p>
       </div>
 
     </>
