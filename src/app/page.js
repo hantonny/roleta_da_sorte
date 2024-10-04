@@ -8,18 +8,18 @@ const Wheel = dynamic(() => import('react-custom-roulette').then(mod => mod.Whee
 });
 
 const data = [
-  { option: 'Lavar louça', style: { backgroundColor: '#FF5733', textColor: 'white' } },  
-  { option: 'Limpar a geladeira', style: { backgroundColor: '#33FF57', textColor: 'black' } },  
-  { option: 'Limpar banheiro', style: { backgroundColor: '#3357FF', textColor: 'white' } },  
-  { option: 'Arrumar a cama', style: { backgroundColor: '#FFC300', textColor: 'black' } },  
-  { option: 'Tirar o lixo', style: { backgroundColor: '#FF33A1', textColor: 'white' } },  
-  { option: 'Limpar a sala', style: { backgroundColor: '#33FFF3', textColor: 'black' } },  
-  { option: 'Lavar roupa', style: { backgroundColor: '#B833FF', textColor: 'white' } },  
-  { option: 'Limpar o fogão', style: { backgroundColor: '#FF8F33', textColor: 'black' } },  
-  { option: 'Limpar janelas', style: { backgroundColor: '#8D33FF', textColor: 'white' } },  
-  { option: 'Varrer a casa', style: { backgroundColor: '#33FF8F', textColor: 'black' } },  
-  { option: 'Cozinhar', style: { backgroundColor: '#FF3388', textColor: 'white' } },  
-  { option: 'Fazer nada', style: { backgroundColor: '#3388FF', textColor: 'white' } },  
+  { option: 'Lavar louça', style: { backgroundColor: '#FF5733', textColor: 'white' } },
+  { option: 'Limpar a geladeira', style: { backgroundColor: '#33FF57', textColor: 'black' } },
+  { option: 'Limpar banheiro', style: { backgroundColor: '#3357FF', textColor: 'white' } },
+  { option: 'Arrumar a cama', style: { backgroundColor: '#FFC300', textColor: 'black' } },
+  { option: 'Tirar o lixo', style: { backgroundColor: '#FF33A1', textColor: 'white' } },
+  { option: 'Limpar a sala', style: { backgroundColor: '#33FFF3', textColor: 'black' } },
+  { option: 'Lavar roupa', style: { backgroundColor: '#B833FF', textColor: 'white' } },
+  { option: 'Limpar o fogão', style: { backgroundColor: '#FF8F33', textColor: 'black' } },
+  { option: 'Limpar janelas', style: { backgroundColor: '#8D33FF', textColor: 'white' } },
+  { option: 'Varrer a casa', style: { backgroundColor: '#33FF8F', textColor: 'black' } },
+  { option: 'Cozinhar', style: { backgroundColor: '#FF3388', textColor: 'white' } },
+  { option: 'Fazer nada', style: { backgroundColor: '#3388FF', textColor: 'white' } },
 ];
 
 export default function Home() {
@@ -88,7 +88,12 @@ export default function Home() {
           transition: 'background-color 0.3s',
           fontWeight: 'bold',
         }} onClick={handleSpinClick}>GIRAR</button>
+        <p style={{
+          marginTop: '10px',
+          fontWeight: 'bold',
+        }}>@2024 - Hantonny Korrea</p>
       </div>
+
     </>
   );
 }
