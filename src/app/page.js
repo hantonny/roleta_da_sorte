@@ -1,6 +1,11 @@
 "use client"
 import { useState } from 'react';
-// import { Wheel } from 'react-custom-roulette';
+import dynamic from 'next/dynamic';
+
+// Importa o Wheel de forma dinâmica, desabilitando a renderização do lado do servidor
+const Wheel = dynamic(() => import('react-custom-roulette').then(mod => mod.Wheel), {
+  ssr: false, // Desabilita a renderização do lado do servidor
+});
 
 const data = [
   { option: 'Lavar louça', style: { backgroundColor: '#FF5733', textColor: 'white' } },  
@@ -51,7 +56,7 @@ export default function Home() {
         }}>
           Roleta das Tarefas de Casa
         </h1>
-        {/* <Wheel
+        <Wheel
           mustStartSpinning={mustSpin}
           prizeNumber={prizeNumber}
           data={data}
@@ -59,7 +64,7 @@ export default function Home() {
           onStopSpinning={handleStopSpinning} // Função chamada ao parar
           backgroundColors={['#3e3e3e', '#df3428']}
           textColors={['#ffffff']}
-        /> */}
+        />
         {resultText && ( // Renderiza o texto do resultado se existir
           <div style={{
             marginTop: '10px',
