@@ -1,7 +1,6 @@
 "use client"
-import styles from "./page.module.css";
-import { useRef, useState } from 'react';
-import { Wheel } from 'react-custom-roulette'
+import { useState } from 'react';
+import { Wheel } from 'react-custom-roulette';
 
 const data = [
   { option: 'Lavar louça', style: { backgroundColor: '#FF5733', textColor: 'white' } },  
@@ -21,11 +20,17 @@ const data = [
 export default function Home() {
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(0);
+  const [resultText, setResultText] = useState(''); // Novo estado para o resultado
 
   const handleSpinClick = () => {
     const newPrizeNumber = Math.floor(Math.random() * data.length);
     setPrizeNumber(newPrizeNumber); // Define o prêmio que a roleta vai parar
     setMustSpin(true); // Inicia o giro da roleta
+  };
+
+  const handleStopSpinning = () => {
+    setMustSpin(false); // Para a roleta quando o giro acabar
+    setResultText(data[prizeNumber].option); // Atualiza o texto com a opção selecionada
   };
 
   return (
@@ -35,11 +40,11 @@ export default function Home() {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '90vh', // Ajusta a altura do div para ocupar toda a tela
-        backgroundColor: '#3e3e3e', // Cor de fundo do div
+        height: '98vh',
+        backgroundColor: '#3e3e3e',
       }}>
         <h1 style={{
-          fontSize: '1.4rem', // Tamanho do texto para telas maiores
+          fontSize: '1.4rem',
           textAlign: 'center',
           margin: '0 0 20px 0',
           color: 'white',
@@ -51,21 +56,32 @@ export default function Home() {
           prizeNumber={prizeNumber}
           data={data}
           fontSize={16}
-          onStopSpinning={() => setMustSpin(false)} // Para a roleta quando o giro acabar
+          onStopSpinning={handleStopSpinning} // Função chamada ao parar
           backgroundColors={['#3e3e3e', '#df3428']}
           textColors={['#ffffff']}
         />
+        {resultText && ( // Renderiza o texto do resultado se existir
+          <div style={{
+            marginTop: '10px',
+            fontSize: '18px',
+            color: 'white',
+            fontWeight: 'bold',
+            textAlign: 'center',
+          }}>
+            {resultText}
+          </div>
+        )}
         <button style={{
           marginTop: '20px',
-          padding: '10px 20px', // Tamanho do botão
-          backgroundColor: '#007BFF', // Cor de fundo
-          color: 'white', // Cor do texto
-          border: 'none', // Sem borda
-          borderRadius: '5px', // Bordas arredondadas
-          cursor: 'pointer', // Cursor pointer para indicar que é clicável
-          fontSize: '16px', // Tamanho da fonte
-          transition: 'background-color 0.3s', // Transição suave para o hover
-          fontWeight: 'bold', // Texto em negrito
+          padding: '10px 20px',
+          backgroundColor: '#007BFF',
+          color: 'white',
+          border: 'none',
+          borderRadius: '5px',
+          cursor: 'pointer',
+          fontSize: '16px',
+          transition: 'background-color 0.3s',
+          fontWeight: 'bold',
         }} onClick={handleSpinClick}>GIRAR</button>
       </div>
     </>
